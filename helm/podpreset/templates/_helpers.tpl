@@ -48,6 +48,7 @@ Selector labels
 {{- define "podpreset.selectorLabels" -}}
 app.kubernetes.io/name: {{ include "podpreset.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
+name: {{ include "podpreset.fullname" . }}
 {{- end }}
 
 {{/*
