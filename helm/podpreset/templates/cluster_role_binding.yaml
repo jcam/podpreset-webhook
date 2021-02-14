@@ -1,0 +1,12 @@
+kind: ClusterRoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: {{ include "podpreset.fullname" . }}
+subjects:
+  - kind: ServiceAccount
+    name: {{ include "podpreset.serviceAccountName" . }}
+    namespace: {{ .Release.Namespace }}
+roleRef:
+  kind: ClusterRole
+  name: {{ include "podpreset.fullname" . }}
+  apiGroup: rbac.authorization.k8s.io
